@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quimer4 Games — Estudio indie de videojuegos</title>
+<meta name="description" content="Quimer4 Games: estudio indie de Cali, Colombia. Dice and Bot, STRAY BULLET, Tow Rage y Fruit Crunch Cube en Steam.">
+<meta property="og:title" content="Quimer4 Games">
+<meta property="og:description" content="Estudio indie de videojuegos. Nuestros juegos en Steam.">
+<meta property="og:image" content="https://juldiaro.github.io/quimer4games/assets/og.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0e18; --bg2:#101622; --panel:#121a2b;
+  --cyan:#29f0ff; --magenta:#f03cff; --purple:#8b5cff; --orange:#ff8a3d;
+  --text:#e8ecff; --muted:#9aa4c7; --line:rgba(140,160,255,.14);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Rajdhani',system-ui,sans-serif;font-size:18px;line-height:1.5;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+
+/* animated grid background */
+.bg-grid{position:fixed;inset:0;z-index:-2;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:56px 56px;mask-image:radial-gradient(ellipse at 50% 0%,#000 25%,transparent 75%);
+  animation:grid 22s linear infinite}
+@keyframes grid{to{background-position:0 56px,56px 0}}
+.bg-glow{position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(600px 400px at 15% 10%,rgba(41,240,255,.12),transparent 70%),
+             radial-gradient(700px 500px at 85% 20%,rgba(240,60,255,.12),transparent 70%)}
+
+/* nav */
+nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(10,14,24,.72);border-bottom:1px solid var(--line)}
+.nav-in{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:12px 24px}
+.brand{display:flex;align-items:center;gap:12px;font-family:'Orbitron';font-weight:900;letter-spacing:.06em;font-size:18px}
+.brand img{width:40px;height:40px;border-radius:10px;mix-blend-mode:screen}
+.brand .c{color:var(--cyan)} .brand .m{color:var(--magenta)}
+.nav-links{display:flex;gap:28px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:15px}
+.nav-links a{color:var(--muted);transition:.2s}
+.nav-links a:hover{color:var(--cyan);text-shadow:0 0 12px var(--cyan)}
+
+/* hero */
+.hero{max-width:1200px;margin:auto;padding:60px 24px 40px;display:grid;grid-template-columns:1.05fr 1fr;align-items:center;gap:40px}
+.hero-logo{position:relative;aspect-ratio:1;max-width:520px;width:100%;justify-self:center}
+.hero-logo img{width:100%;height:100%;object-fit:contain;mix-blend-mode:screen;animation:float 6s ease-in-out infinite;
+  -webkit-mask-image:radial-gradient(circle at 50% 50%,#000 58%,transparent 72%);mask-image:radial-gradient(circle at 50% 50%,#000 58%,transparent 72%)}
+.hero-logo::before{content:"";position:absolute;inset:12%;border-radius:50%;
+  background:conic-gradient(from 0deg,var(--cyan),var(--purple),var(--magenta),var(--cyan));filter:blur(70px);opacity:.28;animation:spin 14s linear infinite;z-index:-1}
+@keyframes float{50%{transform:translateY(-12px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.eyebrow{font-family:'Orbitron';font-size:13px;letter-spacing:.35em;color:var(--cyan);text-transform:uppercase;margin-bottom:16px}
+h1{font-family:'Orbitron';font-weight:900;font-size:clamp(40px,6vw,76px);line-height:1.02;letter-spacing:.02em}
+h1 .c{color:var(--cyan);text-shadow:0 0 24px rgba(41,240,255,.6)}
+h1 .m{color:var(--magenta);text-shadow:0 0 24px rgba(240,60,255,.6)}
+.lead{color:var(--muted);font-size:21px;margin:22px 0 32px;max-width:520px}
+.btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 26px;border-radius:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:15px;transition:.25s;border:1px solid transparent}
+.btn-p{background:linear-gradient(90deg,var(--cyan),var(--magenta));color:#0a0e18;box-shadow:0 0 24px rgba(41,240,255,.35)}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 0 36px rgba(240,60,255,.55)}
+.btn-g{border-color:rgba(41,240,255,.5);color:var(--cyan)}
+.btn-g:hover{background:rgba(41,240,255,.1);box-shadow:0 0 20px rgba(41,240,255,.3)}
+.stats{display:flex;gap:36px;margin-top:40px}
+.stat b{display:block;font-family:'Orbitron';font-size:30px;background:linear-gradient(90deg,var(--cyan),var(--magenta));-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat span{color:var(--muted);font-size:14px;letter-spacing:.15em;text-transform:uppercase}
+
+/* sections */
+section{max-width:1200px;margin:auto;padding:80px 24px}
+.sec-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:40px;flex-wrap:wrap}
+h2{font-family:'Orbitron';font-size:clamp(28px,4vw,44px);font-weight:900}
+h2 span{color:var(--magenta)}
+.sec-head p{color:var(--muted);max-width:420px}
+
+/* game cards */
+.games{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
+.card{position:relative;background:linear-gradient(180deg,var(--panel),var(--bg2));border:1px solid var(--line);border-radius:18px;overflow:hidden;
+  transition:transform .35s,box-shadow .35s,border-color .35s;display:flex;flex-direction:column}
+.card::after{content:"";position:absolute;inset:0;border-radius:18px;padding:1px;pointer-events:none;
+  background:linear-gradient(135deg,var(--c1),transparent 40%,transparent 60%,var(--c2));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:.5;transition:.35s}
+.card:hover{transform:translateY(-6px);box-shadow:0 20px 50px -10px var(--c1)}
+.card:hover::after{opacity:1}
+.media{position:relative;aspect-ratio:460/215;overflow:hidden}
+.media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .5s,transform .6s}
+.media .shot{opacity:0}
+.card:hover .media .shot{opacity:1;transform:scale(1.05)}
+.card:hover .media .head{opacity:0}
+.badge{position:absolute;top:14px;left:14px;z-index:2;padding:5px 12px;border-radius:999px;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;backdrop-filter:blur(8px)}
+.b-out{background:rgba(41,240,255,.18);color:var(--cyan);border:1px solid rgba(41,240,255,.5)}
+.b-soon{background:rgba(240,60,255,.18);color:#ff9cff;border:1px solid rgba(240,60,255,.55)}
+.b-ea{background:rgba(255,138,61,.18);color:#ffb37f;border:1px solid rgba(255,138,61,.55)}
+.body{padding:22px 24px 24px;display:flex;flex-direction:column;flex:1}
+.body h3{font-family:'Orbitron';font-size:22px;margin-bottom:6px}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.tags span{font-size:13px;color:var(--muted);border:1px solid var(--line);padding:2px 10px;border-radius:6px}
+.body p{color:#c3cbe8;font-size:17px;flex:1}
+.foot{display:flex;align-items:center;justify-content:space-between;margin-top:18px;gap:12px}
+.date{color:var(--muted);font-size:14px;letter-spacing:.08em}
+.steam{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:9px;font-weight:700;font-size:14px;letter-spacing:.1em;text-transform:uppercase;
+  background:linear-gradient(90deg,var(--c1),var(--c2));color:#0a0e18;transition:.25s}
+.steam:hover{filter:brightness(1.15);box-shadow:0 0 22px var(--c1)}
+.steam svg{width:18px;height:18px}
+
+/* about */
+.about{display:grid;grid-template-columns:280px 1fr;gap:50px;align-items:center;background:linear-gradient(135deg,rgba(41,240,255,.06),rgba(240,60,255,.06));
+  border:1px solid var(--line);border-radius:24px;padding:48px}
+.about img{width:100%;border-radius:20px;mix-blend-mode:screen}
+.about p{color:#c3cbe8;font-size:19px;margin-top:14px}
+.pillars{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.pillars span{padding:8px 16px;border-radius:999px;border:1px solid var(--line);font-weight:600;font-size:15px}
+.pillars span:nth-child(1){color:var(--orange)} .pillars span:nth-child(2){color:var(--cyan)} .pillars span:nth-child(3){color:var(--magenta)}
+
+/* contact */
+.contact{text-align:center}
+.contact p{color:var(--muted);margin:14px auto 30px;max-width:520px}
+.mail{font-family:'Orbitron';font-size:clamp(18px,3vw,28px);color:var(--cyan);text-shadow:0 0 18px rgba(41,240,255,.5);border-bottom:2px dashed rgba(41,240,255,.4);padding-bottom:4px}
+.mail:hover{color:var(--magenta);text-shadow:0 0 18px rgba(240,60,255,.6)}
+
+footer{border-top:1px solid var(--line);padding:28px 24px;text-align:center;color:var(--muted);font-size:15px}
+footer .brand{justify-content:center;margin-bottom:8px;font-size:15px}
+
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s,transform .7s}
+.reveal.in{opacity:1;transform:none}
+
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;text-align:center;padding-top:30px}
+  .hero-logo{max-width:340px;order:-1}
+  .lead{margin-left:auto;margin-right:auto}
+  .btns,.stats{justify-content:center}
+  .games{grid-template-columns:1fr}
+  .about{grid-template-columns:1fr;text-align:center;padding:32px}
+  .about img{max-width:200px;margin:auto}
+  .pillars{justify-content:center}
+  .nav-links{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="bg-grid"></div><div class="bg-glow"></div>
+
+<nav>
+  <div class="nav-in">
+    <a href="#" class="brand"><img src="assets/favicon.png" alt=""><span><span class="c">QUIMER</span><span class="m">4</span><span class="c">GAMES</span></span></a>
+    <div class="nav-links"><a href="#juegos">Juegos</a><a href="#estudio">Estudio</a><a href="#contacto">Contacto</a></div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div>
+    <div class="eyebrow">Estudio indie · Cali, Colombia</div>
+    <h1><span class="c">QUIMER</span><span class="m">4</span><br><span class="c">GAMES</span></h1>
+    <p class="lead">Tres bestias, un solo monstruo creativo. Hacemos juegos de acción, competencia y puzles con alma arcade, disponibles en Steam.</p>
+    <div class="btns">
+      <a href="#juegos" class="btn btn-p">Ver juegos</a>
+      <a href="#contacto" class="btn btn-g">Contacto</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>4</b><span>Juegos</span></div>
+      <div class="stat"><b>3</b><span>Lanzados</span></div>
+      <div class="stat"><b>2</b><span>Gratis</span></div>
+    </div>
+  </div>
+  <div class="hero-logo"><img src="assets/logo.jpg" alt="Logo de Quimer4 Games: tigre, cabra y serpiente en neón"></div>
+</header>
+
+<section id="juegos">
+  <div class="sec-head reveal">
+    <h2>Nuestros <span>juegos</span></h2>
+    <p>Pasa el cursor sobre cada juego para ver una captura. Añádelos a tu lista de deseados en Steam.</p>
+  </div>
+
+  <div class="games" id="games"></div>
+</section>
+
+<section id="estudio">
+  <div class="about reveal">
+    <img src="assets/emblem.png" alt="Emblema de Quimer4 Games">
+    <div>
+      <div class="eyebrow">El estudio</div>
+      <h2>Una <span>quimera</span> de ideas</h2>
+      <p>Quimer4 Games es un estudio independiente de Cali, Colombia, creado por Julian Díaz. Desarrollamos en Unity juegos que mezclan combate, competencia en línea y puzles para jugar solo o con amigos.</p>
+      <div class="pillars"><span>🐯 Fuerza</span><span>🐐 Ingenio</span><span>🐍 Astucia</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto" class="contact reveal">
+  <div class="eyebrow">Contacto</div>
+  <h2>¿Hablamos?</h2>
+  <p>Prensa, creadores de contenido, colaboraciones o soporte: escríbenos.</p>
+  <a class="mail" href="mailto:quimer4games@gmail.com">quimer4games@gmail.com</a>
+</section>
+
+<footer>
+  <div class="brand"><img src="assets/favicon.png" alt=""><span><span class="c" style="color:var(--cyan)">QUIMER</span><span style="color:var(--magenta)">4</span><span style="color:var(--cyan)">GAMES</span></span></div>
+  © <span id="y"></span> Quimer4 Games · Julian Díaz. Steam y el logo de Steam son marcas de Valve Corporation.
+</footer>
+
+<script>
+const CDN='https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/';
+const games=[
+  {id:5536170,slug:'STRAY_BULLET',name:'STRAY BULLET',status:['soon','Próximamente'],date:'9 jul 2027',c1:'#ff8a3d',c2:'#f03cff',
+   tags:['Acción','Shooter','Free to Play','Multijugador'],
+   desc:'Shooter gratuito y desenfadado donde TÚ eres la bala. Salta con pólvora, vuela con llamas y lánzate como kamikaze en partidas online de hasta 20 jugadores, con bots y pantalla dividida local.',
+   head:'5536170/b0a4f88b64105cf74f61a6dc72ee86220ca9eb14/header.jpg',shot:'5536170/96e300b329918e2e1cac9830ac6c4cc69cc7d254/ss_96e300b329918e2e1cac9830ac6c4cc69cc7d254.1920x1080.jpg',cta:'Añadir a deseados'},
+  {id:5328960,slug:'Tow_Rage',name:'Tow Rage',status:['out','Disponible'],date:'19 oct 2026',c1:'#ff4d4d',c2:'#ff8a3d',
+   tags:['Carreras','Combate de autos','Pantalla dividida'],
+   desc:'Combate de autos arcade: persigue un camión grúa a 200 km/h, sube por su rampa y aguanta arriba mientras los rivales te lanzan misiles, rayos y minas. Modo historia, 4 jugadores locales y online.',
+   head:'5328960/7a30df160c530d70729ffb378fdc522b0581d2d5/header.jpg',shot:'5328960/fc0ff80074089ef3cf8583fc070d1c08ffde0fee/ss_fc0ff80074089ef3cf8583fc070d1c08ffde0fee.1920x1080.jpg',cta:'Ver en Steam'},
+  {id:4503420,slug:'Dice_and_Bot_DB',name:'Dice and Bot D&B',status:['ea','Acceso anticipado'],date:'21 sep 2026',c1:'#29f0ff',c2:'#8b5cff',
+   tags:['Free to Play','Combate por turnos','PvP'],
+   desc:'Construye y personaliza tu propio mecha de batalla. Recoge tornillos, fabrica piezas, descubre partes raras y combina miles de opciones para crear la máquina definitiva y vencer a tus rivales.',
+   head:'4503420/f667d602c1e579e16f884c985ecbca1396e4eba1/header.jpg',shot:'4503420/607561367d52a8e2a7565920b000961f2f99e40a/ss_607561367d52a8e2a7565920b000961f2f99e40a.1920x1080.jpg',cta:'Jugar gratis'},
+  {id:5394300,slug:'Fruit_Crunch_Cube',name:'Fruit Crunch Cube',status:['out','Disponible'],date:'5 nov 2026',c1:'#ffd23d',c2:'#ff4fa3',
+   tags:['Casual','Puzle','Match-3'],
+   desc:'¡Combina frutas en un cubo que puedes girar! Intercambia frutas en cualquier cara, excava sus capas ocultas y detona bombas que lo atraviesan. 60 niveles en 4 mundos. Sin vidas, sin temporizadores, sin compras.',
+   head:'5394300/7b21910fcefc28b32d97a738c90ab0b59f6e5876/header.jpg',shot:'5394300/7a540ae18ce8ffc1ab6a196bdf281f6a303614dc/ss_7a540ae18ce8ffc1ab6a196bdf281f6a303614dc.1920x1080.jpg',cta:'Ver en Steam'}
+];
+const steamIcon='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.98 0C5.67 0 .5 4.86 0 11.04l6.44 2.66a3.4 3.4 0 0 1 1.92-.6l2.87-4.15v-.06a4.54 4.54 0 1 1 4.54 4.54h-.1l-4.09 2.92.01.17a3.41 3.41 0 0 1-6.75.68L.25 15.2A12 12 0 1 0 11.98 0zM7.54 18.2l-1.47-.6a2.55 2.55 0 1 0 1.4-3.5l1.52.63a1.88 1.88 0 1 1-1.45 3.47zm11.4-9.27a3.02 3.02 0 1 0-6.04 0 3.02 3.02 0 0 0 6.04 0zm-5.28 0a2.27 2.27 0 1 1 4.54 0 2.27 2.27 0 0 1-4.54 0z"/></svg>';
+document.getElementById('games').innerHTML=games.map(g=>`
+  <article class="card reveal" style="--c1:${g.c1};--c2:${g.c2}">
+    <a class="media" href="https://store.steampowered.com/app/${g.id}/${g.slug}/" target="_blank" rel="noopener">
+      <span class="badge b-${g.status[0]}">${g.status[1]}</span>
+      <img class="shot" src="${CDN+g.shot}" alt="Captura de ${g.name}" loading="lazy">
+      <img class="head" src="${CDN+g.head}" alt="${g.name}" loading="lazy">
+    </a>
+    <div class="body">
+      <h3>${g.name}</h3>
+      <div class="tags">${g.tags.map(t=>`<span>${t}</span>`).join('')}</div>
+      <p>${g.desc}</p>
+      <div class="foot">
+        <span class="date">${g.status[0]==='soon'?'Lanzamiento':'Lanzado'}: ${g.date}</span>
+        <a class="steam" href="https://store.steampowered.com/app/${g.id}/${g.slug}/" target="_blank" rel="noopener">${steamIcon}${g.cta}</a>
+      </div>
+    </div>
+  </article>`).join('');
+document.getElementById('y').textContent=new Date().getFullYear();
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
