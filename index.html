@@ -104,7 +104,12 @@ h2 span{color:var(--magenta)}
 .steam{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:9px;font-weight:700;font-size:14px;letter-spacing:.1em;text-transform:uppercase;
   background:linear-gradient(90deg,var(--c1),var(--c2));color:#0a0e18;transition:.25s}
 .steam:hover{filter:brightness(1.15);box-shadow:0 0 22px var(--c1)}
-.steam svg{width:18px;height:18px}
+.steam svg,.play svg{width:18px;height:18px}
+.foot{flex-wrap:wrap}
+.ctas{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+.play{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:9px;font-weight:700;font-size:14px;letter-spacing:.1em;text-transform:uppercase;
+  border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.05);color:var(--text);transition:.25s}
+.play:hover{border-color:#00f076;box-shadow:0 0 18px rgba(0,240,118,.35);background:rgba(0,240,118,.08)}
 
 /* about */
 .about{display:grid;grid-template-columns:280px 1fr;gap:50px;align-items:center;background:linear-gradient(135deg,rgba(41,240,255,.06),rgba(240,60,255,.06));
@@ -212,7 +217,7 @@ const games=[
   {id:5328960,slug:'Tow_Rage',name:'Tow Rage',status:['out','Disponible'],date:'19 oct 2026',c1:'#ff4d4d',c2:'#ff8a3d',
    tags:['Carreras','Combate de autos','Pantalla dividida'],
    desc:'Combate de autos arcade: persigue un camión grúa a 200 km/h, sube por su rampa y aguanta arriba mientras los rivales te lanzan misiles, rayos y minas. Modo historia, 4 jugadores locales y online.',
-   head:'5328960/7a30df160c530d70729ffb378fdc522b0581d2d5/header.jpg',shot:'5328960/fc0ff80074089ef3cf8583fc070d1c08ffde0fee/ss_fc0ff80074089ef3cf8583fc070d1c08ffde0fee.1920x1080.jpg',cta:'Ver en Steam'},
+   head:'5328960/7a30df160c530d70729ffb378fdc522b0581d2d5/header.jpg',shot:'5328960/fc0ff80074089ef3cf8583fc070d1c08ffde0fee/ss_fc0ff80074089ef3cf8583fc070d1c08ffde0fee.1920x1080.jpg',cta:'Ver en Steam',play:'https://play.google.com/store/apps/details?id=com.towragestudio.towragemobile.free',playName:'Tow Rage Lite'},
   {id:4503420,slug:'Dice_and_Bot_DB',name:'Dice and Bot D&B',status:['ea','Acceso anticipado'],date:'21 sep 2026',c1:'#29f0ff',c2:'#8b5cff',
    tags:['Free to Play','Combate por turnos','PvP'],
    desc:'Construye y personaliza tu propio mecha de batalla. Recoge tornillos, fabrica piezas, descubre partes raras y combina miles de opciones para crear la máquina definitiva y vencer a tus rivales.',
@@ -220,8 +225,9 @@ const games=[
   {id:5394300,slug:'Fruit_Crunch_Cube',name:'Fruit Crunch Cube',status:['out','Disponible'],date:'5 nov 2026',c1:'#ffd23d',c2:'#ff4fa3',
    tags:['Casual','Puzle','Match-3'],
    desc:'¡Combina frutas en un cubo que puedes girar! Intercambia frutas en cualquier cara, excava sus capas ocultas y detona bombas que lo atraviesan. 60 niveles en 4 mundos. Sin vidas, sin temporizadores, sin compras.',
-   head:'5394300/7b21910fcefc28b32d97a738c90ab0b59f6e5876/header.jpg',shot:'5394300/7a540ae18ce8ffc1ab6a196bdf281f6a303614dc/ss_7a540ae18ce8ffc1ab6a196bdf281f6a303614dc.1920x1080.jpg',cta:'Ver en Steam'}
+   head:'5394300/7b21910fcefc28b32d97a738c90ab0b59f6e5876/header.jpg',shot:'5394300/7a540ae18ce8ffc1ab6a196bdf281f6a303614dc/ss_7a540ae18ce8ffc1ab6a196bdf281f6a303614dc.1920x1080.jpg',cta:'Ver en Steam',play:'https://play.google.com/store/apps/details?id=com.quimeragames.fruitcrunchcube'}
 ];
+const playIcon='<svg viewBox="0 0 24 24"><path fill="#00d7fe" d="M3.6 1.8 13.8 12 3.6 22.2c-.4-.2-.6-.6-.6-1.1V2.9c0-.5.2-.9.6-1.1z"/><path fill="#ffce00" d="m17.2 8.6-3.4 3.4 3.4 3.4 3.9-2.2c1.1-.6 1.1-1.8 0-2.4z"/><path fill="#00f076" d="M3.6 1.8 13.8 12l3.4-3.4L5.1 1.6c-.6-.3-1.1-.2-1.5.2z"/><path fill="#f83c4b" d="M3.6 22.2c.4.4.9.5 1.5.2l12.1-7-3.4-3.4z"/></svg>';
 const steamIcon='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.98 0C5.67 0 .5 4.86 0 11.04l6.44 2.66a3.4 3.4 0 0 1 1.92-.6l2.87-4.15v-.06a4.54 4.54 0 1 1 4.54 4.54h-.1l-4.09 2.92.01.17a3.41 3.41 0 0 1-6.75.68L.25 15.2A12 12 0 1 0 11.98 0zM7.54 18.2l-1.47-.6a2.55 2.55 0 1 0 1.4-3.5l1.52.63a1.88 1.88 0 1 1-1.45 3.47zm11.4-9.27a3.02 3.02 0 1 0-6.04 0 3.02 3.02 0 0 0 6.04 0zm-5.28 0a2.27 2.27 0 1 1 4.54 0 2.27 2.27 0 0 1-4.54 0z"/></svg>';
 document.getElementById('games').innerHTML=games.map(g=>`
   <article class="card reveal" style="--c1:${g.c1};--c2:${g.c2}">
@@ -236,7 +242,10 @@ document.getElementById('games').innerHTML=games.map(g=>`
       <p>${g.desc}</p>
       <div class="foot">
         <span class="date">${g.status[0]==='soon'?'Lanzamiento':'Lanzado'}: ${g.date}</span>
-        <a class="steam" href="https://store.steampowered.com/app/${g.id}/${g.slug}/" target="_blank" rel="noopener">${steamIcon}${g.cta}</a>
+        <div class="ctas">
+          <a class="steam" href="https://store.steampowered.com/app/${g.id}/${g.slug}/" target="_blank" rel="noopener">${steamIcon}${g.cta}</a>
+          ${g.play?`<a class="play" href="${g.play}" target="_blank" rel="noopener" title="${g.playName||g.name} en Google Play">${playIcon}Google Play · Gratis</a>`:''}
+        </div>
       </div>
     </div>
   </article>`).join('');
