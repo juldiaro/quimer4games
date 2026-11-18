@@ -43,6 +43,11 @@ nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(
 .brand .c{color:var(--cyan)} .brand .m{color:var(--magenta)}
 .nav-links{display:flex;gap:28px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:15px}
 .nav-links a{color:var(--muted);transition:.2s}
+.lang{display:flex;border:1px solid var(--line);border-radius:9px;overflow:hidden}
+.lang button{background:none;border:0;color:var(--muted);font:700 14px Orbitron;letter-spacing:.08em;padding:8px 12px;cursor:pointer;transition:.2s}
+.lang button:hover{color:var(--cyan)}
+.lang button.on{background:linear-gradient(90deg,var(--cyan),var(--magenta));color:#0a0e18}
+.nav-right{display:flex;align-items:center;gap:24px}
 .nav-links a:hover{color:var(--cyan);text-shadow:0 0 12px var(--cyan)}
 
 /* hero */
@@ -152,23 +157,24 @@ footer .brand{justify-content:center;margin-bottom:8px;font-size:15px}
 <nav>
   <div class="nav-in">
     <a href="#" class="brand"><img src="assets/favicon.png" alt=""><span><span class="c">QUIMER</span><span class="m">4</span><span class="c">GAMES</span></span></a>
-    <div class="nav-links"><a href="#juegos">Juegos</a><a href="#estudio">Estudio</a><a href="#contacto">Contacto</a></div>
+    <div class="nav-right"><div class="nav-links"><a href="#juegos" data-i18n="navGames">Juegos</a><a href="#estudio" data-i18n="navStudio">Estudio</a><a href="#contacto" data-i18n="navContact">Contacto</a></div>
+    <div class="lang" role="group" aria-label="Idioma / Language"><button data-lang="es">ES</button><button data-lang="en">EN</button></div></div>
   </div>
 </nav>
 
 <header class="hero">
   <div>
-    <div class="eyebrow">Estudio indie · Cali, Colombia</div>
+    <div class="eyebrow" data-i18n="heroEyebrow">Estudio indie · Cali, Colombia</div>
     <h1><span class="c">QUIMER</span><span class="m">4</span><br><span class="c">GAMES</span></h1>
-    <p class="lead">Tres bestias, un solo monstruo creativo. Hacemos juegos de acción, competencia y puzles con alma arcade, disponibles en Steam.</p>
+    <p class="lead" data-i18n="heroLead">Tres bestias, un solo monstruo creativo. Hacemos juegos de acción, competencia y puzles con alma arcade, disponibles en Steam.</p>
     <div class="btns">
-      <a href="#juegos" class="btn btn-p">Ver juegos</a>
-      <a href="#contacto" class="btn btn-g">Contacto</a>
+      <a href="#juegos" class="btn btn-p" data-i18n="btnGames">Ver juegos</a>
+      <a href="#contacto" class="btn btn-g" data-i18n="navContact">Contacto</a>
     </div>
     <div class="stats">
-      <div class="stat"><b>4</b><span>Juegos</span></div>
-      <div class="stat"><b>3</b><span>Lanzados</span></div>
-      <div class="stat"><b>2</b><span>Gratis</span></div>
+      <div class="stat"><b>4</b><span data-i18n="statGames">Juegos</span></div>
+      <div class="stat"><b>3</b><span data-i18n="statOut">Lanzados</span></div>
+      <div class="stat"><b>2</b><span data-i18n="statFree">Gratis</span></div>
     </div>
   </div>
   <div class="hero-logo"><img src="assets/logo.jpg" alt="Logo de Quimer4 Games: tigre, cabra y serpiente en neón"></div>
@@ -176,8 +182,8 @@ footer .brand{justify-content:center;margin-bottom:8px;font-size:15px}
 
 <section id="juegos">
   <div class="sec-head reveal">
-    <h2>Nuestros <span>juegos</span></h2>
-    <p>Pasa el cursor sobre cada juego para ver una captura. Añádelos a tu lista de deseados en Steam.</p>
+    <h2 data-i18n="gamesTitle">Nuestros <span>juegos</span></h2>
+    <p data-i18n="gamesSub">Pasa el cursor sobre cada juego para ver una captura. Añádelos a tu lista de deseados en Steam.</p>
   </div>
 
   <div class="games" id="games"></div>
@@ -187,53 +193,53 @@ footer .brand{justify-content:center;margin-bottom:8px;font-size:15px}
   <div class="about reveal">
     <img src="assets/emblem.png" alt="Emblema de Quimer4 Games">
     <div>
-      <div class="eyebrow">El estudio</div>
-      <h2>Una <span>quimera</span> de ideas</h2>
-      <p>Quimer4 Games es un estudio independiente de Cali, Colombia, creado por Julian Díaz. Desarrollamos en Unity juegos que mezclan combate, competencia en línea y puzles para jugar solo o con amigos.</p>
-      <div class="pillars"><span>🐯 Fuerza</span><span>🐐 Ingenio</span><span>🐍 Astucia</span></div>
+      <div class="eyebrow" data-i18n="aboutEyebrow">El estudio</div>
+      <h2 data-i18n="aboutTitle">Una <span>quimera</span> de ideas</h2>
+      <p data-i18n="aboutText">Quimer4 Games es un estudio independiente de Cali, Colombia, creado por Julian Díaz. Desarrollamos en Unity juegos que mezclan combate, competencia en línea y puzles para jugar solo o con amigos.</p>
+      <div class="pillars"><span data-i18n="p1">🐯 Fuerza</span><span data-i18n="p2">🐐 Ingenio</span><span data-i18n="p3">🐍 Astucia</span></div>
     </div>
   </div>
 </section>
 
 <section id="contacto" class="contact reveal">
-  <div class="eyebrow">Contacto</div>
-  <h2>¿Hablamos?</h2>
-  <p>Prensa, creadores de contenido, colaboraciones o soporte: escríbenos.</p>
+  <div class="eyebrow" data-i18n="navContact">Contacto</div>
+  <h2 data-i18n="contactTitle">¿Hablamos?</h2>
+  <p data-i18n="contactText">Prensa, creadores de contenido, colaboraciones o soporte: escríbenos.</p>
   <a class="mail" href="mailto:quimer4games@gmail.com">quimer4games@gmail.com</a>
 </section>
 
 <footer>
   <div class="brand"><img src="assets/favicon.png" alt=""><span><span class="c" style="color:var(--cyan)">QUIMER</span><span style="color:var(--magenta)">4</span><span style="color:var(--cyan)">GAMES</span></span></div>
-  © <span id="y"></span> Quimer4 Games · Julian Díaz. Steam y el logo de Steam son marcas de Valve Corporation.
+  © <span id="y"></span> Quimer4 Games · Julian Díaz. <span data-i18n="legal">Steam y el logo de Steam son marcas de Valve Corporation.</span>
 </footer>
 
 <script>
 const CDN='https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/';
 const games=[
-  {id:5536170,slug:'STRAY_BULLET',name:'STRAY BULLET',status:['soon','Próximamente'],date:'9 jul 2027',c1:'#ff8a3d',c2:'#f03cff',
+  {id:5536170,en:{tags:['Action','Shooter','Free to Play','Multiplayer'],desc:'Free, lighthearted shooter where YOU are the bullet. Rocket-jump with gunpowder, fly with flames and go kamikaze in online matches of up to 20 players, with bots and local split screen.',date:'9 Jul 2027'},slug:'STRAY_BULLET',name:'STRAY BULLET',status:['soon'],date:'9 jul 2027',c1:'#ff8a3d',c2:'#f03cff',
    tags:['Acción','Shooter','Free to Play','Multijugador'],
    desc:'Shooter gratuito y desenfadado donde TÚ eres la bala. Salta con pólvora, vuela con llamas y lánzate como kamikaze en partidas online de hasta 20 jugadores, con bots y pantalla dividida local.',
-   head:'5536170/b0a4f88b64105cf74f61a6dc72ee86220ca9eb14/header.jpg',shot:'5536170/96e300b329918e2e1cac9830ac6c4cc69cc7d254/ss_96e300b329918e2e1cac9830ac6c4cc69cc7d254.1920x1080.jpg',cta:'Añadir a deseados'},
-  {id:5328960,slug:'Tow_Rage',name:'Tow Rage',status:['out','Disponible'],date:'19 oct 2026',c1:'#ff4d4d',c2:'#ff8a3d',
+   head:'5536170/b0a4f88b64105cf74f61a6dc72ee86220ca9eb14/header.jpg',shot:'5536170/96e300b329918e2e1cac9830ac6c4cc69cc7d254/ss_96e300b329918e2e1cac9830ac6c4cc69cc7d254.1920x1080.jpg',cta:'wish'},
+  {id:5328960,en:{tags:['Racing','Car combat','Split screen'],desc:'Arcade car combat: chase a tow truck at 200 km/h, drive up its ramp and hold on while rivals fire missiles, lightning and mines at you. Story mode, 4-player local and online.',date:'19 Oct 2026'},slug:'Tow_Rage',name:'Tow Rage',status:['out'],date:'19 oct 2026',c1:'#ff4d4d',c2:'#ff8a3d',
    tags:['Carreras','Combate de autos','Pantalla dividida'],
    desc:'Combate de autos arcade: persigue un camión grúa a 200 km/h, sube por su rampa y aguanta arriba mientras los rivales te lanzan misiles, rayos y minas. Modo historia, 4 jugadores locales y online.',
-   head:'5328960/7a30df160c530d70729ffb378fdc522b0581d2d5/header.jpg',shot:'5328960/fc0ff80074089ef3cf8583fc070d1c08ffde0fee/ss_fc0ff80074089ef3cf8583fc070d1c08ffde0fee.1920x1080.jpg',cta:'Ver en Steam',play:'https://play.google.com/store/apps/details?id=com.towragestudio.towragemobile.free',playName:'Tow Rage Lite'},
-  {id:4503420,slug:'Dice_and_Bot_DB',name:'Dice and Bot D&B',status:['ea','Acceso anticipado'],date:'21 sep 2026',c1:'#29f0ff',c2:'#8b5cff',
+   head:'5328960/7a30df160c530d70729ffb378fdc522b0581d2d5/header.jpg',shot:'5328960/fc0ff80074089ef3cf8583fc070d1c08ffde0fee/ss_fc0ff80074089ef3cf8583fc070d1c08ffde0fee.1920x1080.jpg',cta:'steam',play:'https://play.google.com/store/apps/details?id=com.towragestudio.towragemobile.free',playName:'Tow Rage Lite'},
+  {id:4503420,en:{tags:['Free to Play','Turn-based combat','PvP'],desc:'Build and customize your own battle mech! Collect screws, craft parts, discover rare pieces and combine thousands of options to create the ultimate machine and defeat your rivals.',date:'21 Sep 2026'},slug:'Dice_and_Bot_DB',name:'Dice and Bot D&B',status:['ea'],date:'21 sep 2026',c1:'#29f0ff',c2:'#8b5cff',
    tags:['Free to Play','Combate por turnos','PvP'],
    desc:'Construye y personaliza tu propio mecha de batalla. Recoge tornillos, fabrica piezas, descubre partes raras y combina miles de opciones para crear la máquina definitiva y vencer a tus rivales.',
-   head:'4503420/f667d602c1e579e16f884c985ecbca1396e4eba1/header.jpg',shot:'4503420/607561367d52a8e2a7565920b000961f2f99e40a/ss_607561367d52a8e2a7565920b000961f2f99e40a.1920x1080.jpg',cta:'Jugar gratis'},
-  {id:5394300,slug:'Fruit_Crunch_Cube',name:'Fruit Crunch Cube',status:['out','Disponible'],date:'5 nov 2026',c1:'#ffd23d',c2:'#ff4fa3',
+   head:'4503420/f667d602c1e579e16f884c985ecbca1396e4eba1/header.jpg',shot:'4503420/607561367d52a8e2a7565920b000961f2f99e40a/ss_607561367d52a8e2a7565920b000961f2f99e40a.1920x1080.jpg',cta:'free'},
+  {id:5394300,en:{tags:['Casual','Puzzle','Match-3'],desc:'Match fruit on a cube you can spin! Swap fruit on any face, dig into its hidden layers and set off bombs that blast right through it. 60 levels across 4 worlds. No lives, no timers, no purchases.',date:'5 Nov 2026'},slug:'Fruit_Crunch_Cube',name:'Fruit Crunch Cube',status:['out'],date:'5 nov 2026',c1:'#ffd23d',c2:'#ff4fa3',
    tags:['Casual','Puzle','Match-3'],
    desc:'¡Combina frutas en un cubo que puedes girar! Intercambia frutas en cualquier cara, excava sus capas ocultas y detona bombas que lo atraviesan. 60 niveles en 4 mundos. Sin vidas, sin temporizadores, sin compras.',
-   head:'5394300/7b21910fcefc28b32d97a738c90ab0b59f6e5876/header.jpg',shot:'5394300/7a540ae18ce8ffc1ab6a196bdf281f6a303614dc/ss_7a540ae18ce8ffc1ab6a196bdf281f6a303614dc.1920x1080.jpg',cta:'Ver en Steam',play:'https://play.google.com/store/apps/details?id=com.quimeragames.fruitcrunchcube'}
+   head:'5394300/7b21910fcefc28b32d97a738c90ab0b59f6e5876/header.jpg',shot:'5394300/7a540ae18ce8ffc1ab6a196bdf281f6a303614dc/ss_7a540ae18ce8ffc1ab6a196bdf281f6a303614dc.1920x1080.jpg',cta:'steam',play:'https://play.google.com/store/apps/details?id=com.quimeragames.fruitcrunchcube'}
 ];
 const playIcon='<svg viewBox="0 0 24 24"><path fill="#00d7fe" d="M3.6 1.8 13.8 12 3.6 22.2c-.4-.2-.6-.6-.6-1.1V2.9c0-.5.2-.9.6-1.1z"/><path fill="#ffce00" d="m17.2 8.6-3.4 3.4 3.4 3.4 3.9-2.2c1.1-.6 1.1-1.8 0-2.4z"/><path fill="#00f076" d="M3.6 1.8 13.8 12l3.4-3.4L5.1 1.6c-.6-.3-1.1-.2-1.5.2z"/><path fill="#f83c4b" d="M3.6 22.2c.4.4.9.5 1.5.2l12.1-7-3.4-3.4z"/></svg>';
 const steamIcon='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.98 0C5.67 0 .5 4.86 0 11.04l6.44 2.66a3.4 3.4 0 0 1 1.92-.6l2.87-4.15v-.06a4.54 4.54 0 1 1 4.54 4.54h-.1l-4.09 2.92.01.17a3.41 3.41 0 0 1-6.75.68L.25 15.2A12 12 0 1 0 11.98 0zM7.54 18.2l-1.47-.6a2.55 2.55 0 1 0 1.4-3.5l1.52.63a1.88 1.88 0 1 1-1.45 3.47zm11.4-9.27a3.02 3.02 0 1 0-6.04 0 3.02 3.02 0 0 0 6.04 0zm-5.28 0a2.27 2.27 0 1 1 4.54 0 2.27 2.27 0 0 1-4.54 0z"/></svg>';
-document.getElementById('games').innerHTML=games.map(g=>`
+function renderGames(){const L=T[lang];document.getElementById('games').innerHTML=games.map(g0=>{const g=lang==='en'?{...g0,...g0.en}:g0;return `
   <article class="card reveal" style="--c1:${g.c1};--c2:${g.c2}">
     <a class="media" href="https://store.steampowered.com/app/${g.id}/${g.slug}/" target="_blank" rel="noopener">
-      <span class="badge b-${g.status[0]}">${g.status[1]}</span>
-      <img class="shot" src="${CDN+g.shot}" alt="Captura de ${g.name}" loading="lazy">
+      <span class="badge b-${g.status[0]}">${L["st_"+g.status[0]]}</span>
+      <img class="shot" src="${CDN+g.shot}" alt="${L.shot} ${g.name}" loading="lazy">
       <img class="head" src="${CDN+g.head}" alt="${g.name}" loading="lazy">
     </a>
     <div class="body">
@@ -241,17 +247,46 @@ document.getElementById('games').innerHTML=games.map(g=>`
       <div class="tags">${g.tags.map(t=>`<span>${t}</span>`).join('')}</div>
       <p>${g.desc}</p>
       <div class="foot">
-        <span class="date">${g.status[0]==='soon'?'Lanzamiento':'Lanzado'}: ${g.date}</span>
+        <span class="date">${g.status[0]==='soon'?L.release:L.released}: ${g.date}</span>
         <div class="ctas">
-          <a class="steam" href="https://store.steampowered.com/app/${g.id}/${g.slug}/" target="_blank" rel="noopener">${steamIcon}${g.cta}</a>
-          ${g.play?`<a class="play" href="${g.play}" target="_blank" rel="noopener" title="${g.playName||g.name} en Google Play">${playIcon}Google Play · Gratis</a>`:''}
+          <a class="steam" href="https://store.steampowered.com/app/${g.id}/${g.slug}/" target="_blank" rel="noopener">${steamIcon}${L["cta_"+g.cta]}</a>
+          ${g.play?`<a class="play" href="${g.play}" target="_blank" rel="noopener" title="${g.playName||g.name} — Google Play">${playIcon}Google Play · ${L.statFree}</a>`:''}
         </div>
       </div>
     </div>
-  </article>`).join('');
+  </article>`}).join('');document.querySelectorAll('#games .reveal').forEach(el=>io?io.observe(el):el.classList.add('in'));}
 document.getElementById('y').textContent=new Date().getFullYear();
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+var io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+const T={
+ es:{title:'Quimer4 Games — Estudio indie de videojuegos',navGames:'Juegos',navStudio:'Estudio',navContact:'Contacto',heroEyebrow:'Estudio indie · Cali, Colombia',
+  heroLead:'Tres bestias, un solo monstruo creativo. Hacemos juegos de acción, competencia y puzles con alma arcade, disponibles en Steam y Google Play.',
+  btnGames:'Ver juegos',statGames:'Juegos',statOut:'Lanzados',statFree:'Gratis',gamesTitle:'Nuestros <span>juegos</span>',
+  gamesSub:'Pasa el cursor sobre cada juego para ver una captura. Añádelos a tu lista de deseados en Steam.',aboutEyebrow:'El estudio',aboutTitle:'Una <span>quimera</span> de ideas',
+  aboutText:'Quimer4 Games es un estudio independiente de Cali, Colombia, creado por Julian Díaz. Desarrollamos en Unity juegos que mezclan combate, competencia en línea y puzles para jugar solo o con amigos.',
+  p1:'🐯 Fuerza',p2:'🐐 Ingenio',p3:'🐍 Astucia',contactTitle:'¿Hablamos?',contactText:'Prensa, creadores de contenido, colaboraciones o soporte: escríbenos.',
+  legal:'Steam y el logo de Steam son marcas de Valve Corporation.',st_soon:'Próximamente',st_out:'Disponible',st_ea:'Acceso anticipado',
+  release:'Lanzamiento',released:'Lanzado',cta_wish:'Añadir a deseados',cta_steam:'Ver en Steam',cta_free:'Jugar gratis',shot:'Captura de'},
+ en:{title:'Quimer4 Games — Indie game studio',navGames:'Games',navStudio:'Studio',navContact:'Contact',heroEyebrow:'Indie studio · Cali, Colombia',
+  heroLead:'Three beasts, one creative monster. We make action, competitive and puzzle games with an arcade soul, available on Steam and Google Play.',
+  btnGames:'See games',statGames:'Games',statOut:'Released',statFree:'Free',gamesTitle:'Our <span>games</span>',
+  gamesSub:'Hover over each game to see a screenshot. Add them to your Steam wishlist.',aboutEyebrow:'The studio',aboutTitle:'A <span>chimera</span> of ideas',
+  aboutText:'Quimer4 Games is an independent studio from Cali, Colombia, created by Julian Díaz. We build games in Unity that blend combat, online competition and puzzles to play solo or with friends.',
+  p1:'🐯 Strength',p2:'🐐 Wit',p3:'🐍 Cunning',contactTitle:"Let's talk",contactText:'Press, content creators, collaborations or support: drop us a line.',
+  legal:'Steam and the Steam logo are trademarks of Valve Corporation.',st_soon:'Coming soon',st_out:'Available',st_ea:'Early Access',
+  release:'Release',released:'Released',cta_wish:'Add to wishlist',cta_steam:'View on Steam',cta_free:'Play for free',shot:'Screenshot of'}
+};
+let lang;
+try{lang=localStorage.getItem('q4lang')}catch(e){}
+if(lang!=='es'&&lang!=='en'){const nav=(navigator.languages&&navigator.languages[0])||navigator.language||'en';lang=nav.toLowerCase().startsWith('es')?'es':'en';}
+function setLang(l,save){lang=l;const L=T[l];document.documentElement.lang=l;document.title=L.title;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.dataset.i18n;if(L[k])el.innerHTML=L[k]});
+  document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.lang===l));
+  renderGames();if(save){try{localStorage.setItem('q4lang',l)}catch(e){}}}
+document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang,true)));
+setLang(lang,false);
+
 </script>
 </body>
 </html>
